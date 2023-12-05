@@ -20,7 +20,7 @@ class PostDataSourcesImpl extends PostDataSources {
   });
   @override
   Future<Either<Failure, List<PostModel>>> getPost() async {
-    final response = await dio.get(baseUrl);
+    final response = await dio.get(APIConstants.baseUrl);
 
     if (response.statusCode == 200) {
       return Right(
@@ -39,7 +39,7 @@ class PostDataSourcesImpl extends PostDataSources {
 
   @override
   Future<Either<Failure, List<CommentModel>>> getComment() async {
-    final response = await dio.get(commentUrl);
+    final response = await dio.get(APIConstants.baseUrl);
 
     if (response.statusCode == 200) {
       return Right(
