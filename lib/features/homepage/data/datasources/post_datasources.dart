@@ -6,6 +6,7 @@ import 'package:firstapplication/core/constants/constants.dart';
 import 'package:firstapplication/core/error/failure.dart';
 import 'package:firstapplication/features/homepage/data/models/comment_model.dart';
 import 'package:firstapplication/features/homepage/data/models/post_model.dart';
+import 'package:firstapplication/shared/utils/dio_services.dart';
 
 abstract class PostDataSources {
   Future<Either<Failure, List<PostModel>>> getPost();
@@ -20,7 +21,7 @@ class PostDataSourcesImpl extends PostDataSources {
   });
   @override
   Future<Either<Failure, List<PostModel>>> getPost() async {
-    final response = await dio.get(APIConstants.baseUrl);
+    final response = await DioService().client.get(APIConstants.baseUrl);
 
     if (response.statusCode == 200) {
       return Right(
@@ -39,7 +40,7 @@ class PostDataSourcesImpl extends PostDataSources {
 
   @override
   Future<Either<Failure, List<CommentModel>>> getComment() async {
-    final response = await dio.get(APIConstants.baseUrl);
+    final response = await DioService().client.get(APIConstants.commentUrl);
 
     if (response.statusCode == 200) {
       return Right(
