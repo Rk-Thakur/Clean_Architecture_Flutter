@@ -11,8 +11,8 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 void setUpServiceLocator() {
-  getIt.registerFactory(() => HomepageBloc(
-      postUseCases: getIt<PostUseCases>(),
+  getIt.registerFactory(() => HomepageBloc( //registering factory is like telling your assistant how to follow the receipe and make cakes.
+      postUseCases: getIt<PostUseCases>(), // assistance
       commentUseCases: getIt<CommentUseCases>(),
       commentByIdUseCases: getIt<CommentByIdUseCases>()));
 

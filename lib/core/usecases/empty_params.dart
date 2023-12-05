@@ -3,14 +3,6 @@ abstract class EmptyParams {}
 
 class NoParams extends EmptyParams {}
 
-class CountryParam extends EmptyParams {
-  int skip;
-  int take;
-  CountryParam({
-    required this.skip,
-    required this.take,
-  });
-}
 
 class CommentParam extends EmptyParams {
   int id;
